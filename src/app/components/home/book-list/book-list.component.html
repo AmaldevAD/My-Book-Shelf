@@ -1,0 +1,74 @@
+<div class="row d-flex justify-content-start card-content">
+  <div *ngFor="let book of books, let x = index" class="card-content">
+    <div class="card" style="width: 19rem; height: 250px;">
+      <div class="row">
+        <div class="col-8"> <img
+            src="assets/images/{{book.Image}}"
+            class="" style="width: 100%; height: 250px"></div>
+        <div class="col-4 d-flex align-items-center" style="height: 100%; ">
+          <div class="textOverflow">
+            <p class="text-title font-italic"> {{book.Title}}</p>
+            <p class="text-author text-secondary ">{{book.Author}}</p>
+            <button (click)="onView(book.Id)" class="btn btn-dark btn-sm">View</button>
+            <button (click)="onDelete(book.Id)" class="btn btn-danger btn-sm" style="margin-top: 10px;">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div type="button" data-toggle="modal" data-target="#exampleModalLong"
+      class="card d-flex justify-content-center text-center add-card view overlay zoom">
+      <div class="add-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgSUXmVtzXbJlZLKHjI551t5E5qMbrBu6oxA&usqp=CAU"
+          class="" style="width: 60px; height: 60px">
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+
+
+          
+          <!-- <button (click)="upload($event)">Upload</button> -->
+          
+            <form #loginForm="ngForm" class="form-class">
+              <div class="row " style="background-color: azure;">
+                <div class="col-8 d-flex align-items-center justify-content-center">
+                  <input required  type="file" (change)="onSelectFile($event)" accept="*.png.jpg">
+                </div>
+                <div class="col-4"> <img [src]="url" alt="" width="50px" height="100px"></div>
+              </div>
+              <div  class="form-group col-lg-9" style="margin-left: 50px;">
+              <input required name='title' #title='ngModel'  [(ngModel)]='bookModel.title' type="text" class="form-control  " id="booktitle" placeholder="Enter title"><br>
+              <input required name="bookAuthor" #bookAuthor='ngModel' [(ngModel)]="bookModel.author" type="text" class="form-control" id="bookauthor" placeholder="Enter Author"><br>
+              <input required name ="bookPrice" #bookPrice='ngModel' [(ngModel)]="bookModel.price" type="number" class="form-control" id="bookprice" placeholder="Enter Price">
+            </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button [disabled]='loginForm.invalid' id="saveBook" (click)="onSubmit()" type="button" class="btn btn-dark" >Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

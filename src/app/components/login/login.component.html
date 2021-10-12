@@ -1,0 +1,56 @@
+<div>
+    <div class="row" style="height: 97.8vh">
+        <div class="col-5 d-flex text-center justify-content-center  align-items-center bg-secondary">
+            <div>
+                <h1 style="color: white;"> New User?</h1>
+                <button (click)="onRegister()" type="button" class="btn btn-outline-light btn-lg signin-button">Register</button>
+            </div>
+
+        </div>
+        <div class="col-7 d-flex text-center    align-items-center ">
+
+
+
+            <div style="margin-left: 20%;">
+                <div class="d-flex text-center align-items-center">
+                    <h2 class="" style="color: grey;">Login</h2>
+                </div>
+                <div style="width: 190%;">
+                    <form style="margin-top: 20px; " #registerForm="ngForm">
+
+
+                        <div class="form-group top-margin">
+                            <input type="email" name="email" id="email" class="form-control "
+                                placeholder="Email" required pattern=".+@.+\..+">
+                            <!-- <small [class.d-none]="email.untouched || !email.errors?.required" class="text-danger">This is required filed</small>
+                        <small [class.d-none]="email.untouched || !email.errors?.pattern" class="text-danger">Invalid email</small> -->
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group top-margin">
+                            <input type="password" name="password" id="password" class="form-control"
+                                placeholder="Password">
+                            <!-- <small [class.d-none]="password.untouched || password.valid" class="text-danger">This is required filed</small> -->
+
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="d-flex text-center align-items-center">
+                    <button type="button" class="btn  btn-secondary signin-button">Login</button>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>

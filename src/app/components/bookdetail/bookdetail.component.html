@@ -1,0 +1,86 @@
+<div class="">
+
+    <div class="row" style="height: 100vh">
+        <div class="col-6 d-flex text-center justify-content-center  align-items-center">
+
+            <div class=" text-center body-text">
+                <div>
+                    <h1 class="book-title">"{{book.Title}}"</h1>
+                </div>
+                <div class="book-author">
+                    <h3> <i>- {{book.Author}}</i> </h3>
+                </div>
+
+                <div class="book-qote">
+                    <h4> <i style="color: rgb(170, 170, 170);">"is simply dummy text of the printing and typesetting
+                            industry. "</i> </h4>
+                </div>
+
+                <div class="book-price">
+                    <h3> <i> {{book.Price| currency:"INR" }}</i> </h3>
+                </div>
+                <div>
+                    <div class="col" style="margin-top: 40px;">
+                        <button type="button" data-toggle="modal" data-target="#exampleModalLong"
+                            class="btn btn-outline-dark btn-lg"
+                            style="border-radius: 15px; padding: 10px 30px;">Edit</button>
+                        <button (click)="onHome()" type="button" class="btn btn-outline-dark btn-lg"
+                            style="border-radius: 15px; padding: 10px 20px; margin-left: 20px;">Home</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="col-6 d-flex    align-items-center">
+            <img style="margin-left: 15%;"src="assets/images/{{book.Image}}"width="53%">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Book</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+
+                
+                <form #loginForm="ngForm" class="form-class">
+                    <div class="row " style="background-color: azure;">
+                      <div class="col-8 d-flex align-items-center justify-content-center">
+                        <input required  type="file" (change)="onSelectFile($event)" accept="*.png.jpg">
+                      </div>
+                      <div class="col-4"> <img [src]="url" alt="" width="50px" height="100px"></div>
+                    </div>
+                    <div  class="form-group col-lg-9" style="margin-left: 50px;">
+                    <input required name='title' #title='ngModel'  [(ngModel)]='bookModel.title' type="text" class="form-control  " id="booktitle" placeholder="Enter title"><br>
+                    <input required name="bookAuthor" #bookAuthor='ngModel' [(ngModel)]="bookModel.author" type="text" class="form-control" id="bookauthor" placeholder="Enter Author"><br>
+                    <input required name ="bookPrice" #bookPrice='ngModel' [(ngModel)]="bookModel.price" type="number" class="form-control" id="bookprice" placeholder="Enter Price">
+                  </div>
+                  </form>
+      
+              </div>
+              <div class="modal-footer">
+      
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button [disabled]='loginForm.invalid' id="saveBook" (click)="onSubmit()" type="button" class="btn btn-dark" >Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+      
+      

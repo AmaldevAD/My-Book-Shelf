@@ -1,0 +1,68 @@
+<div>
+    <div class="row" style="height: 97.8vh">
+        <div class="col-5 d-flex text-center justify-content-center  align-items-center bg-secondary">
+            <div>
+                <h1 style="color: white;"> Welcome back!</h1>
+                <button (click)="onSignIn()" type="button" class="btn btn-outline-light btn-lg signin-button">Sign In</button>
+            </div>
+
+        </div>
+        <div class="col-7 d-flex text-center    align-items-center ">
+
+
+
+            <div style="margin-left: 20%;">
+                <div class="d-flex text-center align-items-center">
+                    <h2 class="text-center" style="color: grey;">Register</h2>
+                </div>
+                
+                <div style="width: 190%;">
+                    <form style="margin-top: 20px; " #registerForm="ngForm">
+
+                        <!-- /name -->
+                        <div class="form-group top-margin">
+
+                            <input type="text" name="name" id="name" class="form-control " placeholder="Name" required [ngModel]="userModel.name" #name = "ngModel">
+                            <small [class.d-none]="name.untouched || name.valid" class="text-danger">This is required filed</small>
+                        </div>
+
+
+                        <div class="form-group top-margin" >
+                            <input type="email" name="email" id="email" class="form-control"placeholder="Email" required pattern=".+@.+\..+" [ngModel]="userModel.email" #email = "ngModel">
+                            <small [class.d-none]="email.untouched || !email.errors?.required" class="text-danger">This is required filed</small>
+                        <small [class.d-none]="email.untouched || !email.errors?.pattern" class="text-danger">Invalid email</small>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group top-margin">
+                            <input type="password" name="password" id="password" class="form-control"
+                                placeholder="Password" required [ngModel]="userModel.password" #password = "ngModel">
+                            <small [class.d-none]="password.untouched || password.valid" class="text-danger">This is required filed</small>
+
+                        </div>
+
+                        <div class="form-group top-margin">
+                            <input type="number" name="mobile" id="mobile" class="form-control " placeholder="Mobile"
+                                required  pattern="^\d{10}$" [ngModel]="userModel.phone" #phone = "ngModel">
+                            <small [class.d-none]="phone.untouched || !phone.errors?.required" class="text-danger">This is required filed</small>
+                            <small [class.d-none]="phone.untouched || !phone.errors?.pattern" class="text-danger">Invalid number</small>
+                        </div>
+                    </form>
+                   
+                </div>
+                <div class="d-flex text-center align-items-center">
+                    <button type="button" class="btn  btn-secondary signin-button "[disabled]='registerForm.invalid'   >Register</button>
+                </div>
+            </div>  
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>

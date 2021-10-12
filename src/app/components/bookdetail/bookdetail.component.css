@@ -1,0 +1,23 @@
+.book-title{
+    background-color: black;
+    color: white;
+    padding: 10px 10px  ;
+}
+
+.book-author{
+    margin-top: 20px;
+}
+.book-qote{
+
+margin-top: 20px;
+}
+
+.body-text{
+    width: 65%;
+}
+
+.book-price{
+    color: green;
+    font-weight: 900;
+    margin-top: 20px;
+}
